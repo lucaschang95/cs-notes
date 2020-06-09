@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>距离2021年还有</p>
+  <div id="div"></div>
+  <script>
+    const endDate = new Date(2021, 0, 1, 0, 0, 0).getTime();
+    const renderDiv = document.getElementById('div');
+
+    function countdown() {
+      setInterval(render, 1000);
+    }
+
+    function render() {
+      const curr = new Date();
+      let temp = curr.getTime();
+      temp = Math.floor((endDate - temp) / 1000)
+      console.log(temp);
+      const day = Math.floor(temp / 86400);
+      const hour = 23 - curr.getHours();
+      const minute = 59 - curr.getMinutes();
+      const second = 59 - curr.getSeconds();
+      renderDiv.innerText = `${day}天${hour}小时${minute}分钟${second}秒`;
+    }
+    window.onload = countdown;
+
+  </script>
+</body>
+
+</html>

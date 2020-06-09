@@ -1,0 +1,15 @@
+# Multi column
+
+container
+`column-count: 3`
+`column-width: 200px;`
+
+
+
+
+  column-gap: 20px;
+  column-rule: 4px dotted rgb(79, 185, 227);
+
+
+
+  break-inside: avoid;
