@@ -10,7 +10,6 @@
 
 - #youIdName { color: white }
 
-- 
 
 
 
@@ -32,7 +31,7 @@
 
 #### 伪类选择器 (Pseudo-Class Selector)
 
-style certain state of element
+选中的是元素，相当于给某些元素加上了类别
 
 - `button:hover { color: white }`
 - `:first-child :last-child :only-child :invalid :hover :focus :nth-child() :first-chil :last-child :nth-of-type()`
@@ -46,6 +45,8 @@ style certain state of element
 
 
 #### 伪元素选择器 (Pseudo-Element Selector)
+
+选中的不是元素，相当于创造了一些新的元素
 
 **style certain part of element**
 
@@ -61,35 +62,63 @@ style certain state of element
 
 
 
-## Combinator
-
-#### Descendant Combinator
-
-- `li em{ color: white}`  不需要是direct children
 
 
 
-#### Child Combinator
-
--  `article > p { color: white }` 需要时direct children
 
 
 
-#### Adjacent Sibling Combinator
+## 组合
+
+#### 后代组合 
+
+（Descendant Combinator）
+
+- **空格**
+- 只需要是后代，不需要是子类（direct children）
+
+- `li em{ color: white}`  
+
+
+
+#### 子类组合
+
+（Child Combinator）
+
+- **大于号**
+- 需要是子类
+
+-  `article > p { color: white }` 
+
+
+
+#### 相邻兄弟组合器
+
+Adjacent Sibling Combinator
+
+- **加号**
+
+- 相同层级（兄弟），且相邻
 
 - `li + p{ color: white }` same level, right after
 
 
 
-#### General Sibling Combinator
+#### 同级组合器
 
-- `h1 ~ p` same level, after
+（General Sibling Combinator）
+
+- **约等于号**
+- 同级，但是必须在后面
+
+- `h1 ~ p`
 
 
 
-#### Comma
+#### 多个选择器
 
-target multiple selector (对多个selector选中的对象一起)
+- **逗号**
+- 命中多个规则
 
 
 

@@ -82,19 +82,40 @@
 
 
 
+## （元素节点）查找
+
+#### 查找方法
+
+通过 **id**, **标签名**, **类名**, **CSS选择器**, **HTML对象集合**来查找HTML元素
+
+- `document.getElementById(id)` 
+- `document.getElementsByTagName(name)`
+- `document.getElementByClassName(name)`
+- `document.querySelector(selector)`
+- `document.querySelectorAll(selector)`
+
+
+
+#### 区分：HTMLCollection 和 NodeList
+
+- **HTMLCollection** 是动态的, **NodeList** 是静态的
+- **NodeList** 包含元素节点, 属性节点, 文本节点, **HTMLCollection** 只包含
 
 
 
 
-## 元素节点
 
-#### 创建元素节点
+
+
+## （元素节点）增删
+
+#### 创建
 
 - `document.createElement(element)`
 
 
 
-#### 添加元素节点至DOM
+#### 挂载
 
 - `element.appendChild(element)` 该节点会变为父节点的最后一个子节点
 - `element.insertBefore(element1, element2)` 将element1插入到element2之前
@@ -108,36 +129,15 @@
 
 
 
+
+
+
+
+## （元素节点）修改
+
 #### 替换元素节点
 
 - `element.replaceChild(element1, element2)` 用element1替换element2
-
-
-
-#### 查找元素节点
-
-- `document.getElementById(id)` 
-- `document.getElementsByTagName(name)`
-- `document.getElementByClassName(name)`
-- `document.querySelector(selector)`
-- `document.querySelectorAll(selector)`
-
-**查找方法总结**:
-
-通过 **id**, **标签名**, **类名**, **CSS选择器**, **HTML对象集合**来查找HTML元素
-
-
-
-#### `document.write();`
-
-loaded完之后会覆盖已有内容
-
-
-
-## HTMLCollection 和 NodeList
-
-- **HTMLCollection** 是动态的, **NodeList** 是静态的
-- **NodeList** 包含元素节点, 属性节点, 文本节点, **HTMLCollection** 只包含
 
 
 
@@ -145,19 +145,39 @@ loaded完之后会覆盖已有内容
 
 ## 修改内容和样式
 
-#### 修改
+**id**
 
-- `element.innerHTML = HTML`
-- `element.innerText = text`
-
+- `element.id`
 
 
-#### 修改属性
+
+**类名**
+
+`node.classList`
+
+- **添加**: `add()`
+- **删除**: `remove()`
+- **切换**: `toggle()`
+- **包含**: `contain()`
+- **替换**: `replace()`
+
+
+
+**修改属性**
 
 - `element.setAttribute(name, value)`
 - `element.getAttribute(name, value)`
 - `element.hasAttribute(name, value)`
 - **或者**: `element.attribute = new value`
+
+
+
+**内容**
+
+- `element.innerHTML = HTML`
+- `element.innerText = text`
+
+
 
 
 
@@ -168,14 +188,6 @@ loaded完之后会覆盖已有内容
 - `element.style.removeProperty('font-size')
 
 
-
-#### 修改类名
-
-- **添加**: `node.classList.add()`
-- **删除**: `node.classList.remove()`
-- **切换**: `node.classList.toggle()`
-- **包含**: `node.classList.contain()`
-- **替换**: `node.classList.replace()`
 
 
 
