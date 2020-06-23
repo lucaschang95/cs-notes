@@ -1,19 +1,33 @@
-# String
+# 字符串
 
-### 1. Create a string
 
-- string literal
-  - "string text", 'string text'
+
+## 创建
+
+#### 字面量（literal）
+
+- 使用**单引号/双引号**："string text", 'string text'
+
+
+
+**构造函数**
+
 - String(param)
   - param: Anything to be converted to a string
-- template literals 
-  - `hello ${who}`
-    - 使用back-tick (``)
-    - place holders ${expression} (将表达式放入dollar sign)
-    - multi-line
 
-excape: backslash `\`
-concatenate: `+` `+=`
+
+
+
+
+#### 模板字符串（es6）
+
+- 字符串使用使用**反引号**包裹 (``)，支持多行（multi-line）
+
+- 模板使用`${who}`包裹
+
+
+
+
 
 character access
 
