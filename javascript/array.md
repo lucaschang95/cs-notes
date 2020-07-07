@@ -104,11 +104,18 @@
 
 
 
-#### `Array.prototype.splice()`
+#### Array.prototype.splice()
 
 - `arr.splice(start[, deleteCount[, item1...]])`
-
 - 删除一些, 加入一些
+
+
+
+#### Array.prototype.map()
+
+- syntax：`newArray = arr.map(function callback(currentValue[, index[, array]]) { return element for new_array}, this arg)`
+
+
 
 #### Sort
 
@@ -121,25 +128,6 @@
 
 
 
-
-#### Reverse
-
-> `Array.reverse()`
-
-#### Find the index of an item
-> `arrays.indexOf(item)`
-  `arrays.lastIndexOf(searchElement[, fromIndex])`
-
-#### Remove items
-> `arrays.splice(index, count_to_remove, addElement1, addElement2, ...)`
-
-#### Copy an Array
-> `arrays.slice()` 默认是全部复制
-
-#### Filter
-
-- `arr.filter(callback(element, index))`
-- `true`: keep the element
 
 
 

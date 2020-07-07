@@ -34,10 +34,24 @@ box-sizing: border-box;
 
 ## 盒模型获取宽高
 
-**offsetWidth/offsetHeight**
+**offsetWidth/Height**
 
 - **最常用的**, 兼容性最好的
-- 相比之下，`style.width/height`只能获取到内联样式所设置的宽高
+- 包括content，padding，border，不包括margin
+
+
+
+**clientHeight/Width**
+
+**内高度**，包括：content，padding，不包括border和margin
+
+
+
+
+
+**style.width/height**
+
+- 不推荐使用：`style.width/height`只能获取到内联样式所设置的宽高
 
 
 
@@ -50,6 +64,4 @@ box-sizing: border-box;
 
 
 
-**clientHeight**
-
-**内高度**，包括：content，padding
+src 下面会用yi x
