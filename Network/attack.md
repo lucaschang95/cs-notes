@@ -103,7 +103,7 @@ https://blog.csdn.net/hxpjava1/article/details/81005195
 
 
 
-## 跨站请求攻击伪造
+## 跨站请求攻击伪造（xsrf）
 
 **CSRF, crosee site request forgery**
 

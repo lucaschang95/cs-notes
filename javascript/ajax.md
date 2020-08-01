@@ -15,6 +15,7 @@
 ## 设置请求行
 
 - `xhr.open(method, url, isAsync)`
+- isAsync：默认是true，就是异步的请求，同步的请求用户体验不佳
 
 
 
@@ -27,23 +28,31 @@
 
 
 
-## 定义各种回调函数
+
+
+## 请求属性
+
+#### responseType属性
+
+`responseType`属性是一个字符串，表示服务器返回数据的类型。使用`xhr.response`属性来接收。
 
 
 
+#### timeout属性
 
-
-#### 超时处理
-
-**定义超时时间**
-
-`xhr.timeout = 5000`
+`timeout`属性表示请求在等待响应多少毫秒之后终止，否则触发`ontimeout`响应事件
 
 
 
-**设置超时处理函数**
+#### withCredentials属性
 
-`xhr.ontimeout = function() {...}`
+`withCredentials`属性是一个布尔值，表示跨域请求时是否协带凭据信息（`cookie`、`HTTP`认证及客户端`SSL`证明等）。默认为`false`。
+
+
+
+**需要后端配合**
+
+- 后端的`response`添加`Access-Control-Allow-Origin`，且必须制定域名，`Access-Control-Allow-Credentials`这个头部必须为true
 
 
 
@@ -66,17 +75,6 @@
 
 
 
-#### 实例的readyState属性
-
-- `httpRequest.readyState`
-  - 0: 请求**未初始化**
-  - 1: 服务器连接**已建立**
-  - 2: 请求**已接收**
-  - 3: 请求**处理中**
-  - 4: 请求**已完成**, 其响应已就绪
-
-
-
 #### status
 
 200: OK, 404: Not Found
@@ -89,6 +87,38 @@
 
 - `httpRequest.responseText`
 - `httpRequest.responseXML`
+
+
+
+
+
+
+
+#### readyState属性和onreadystatechange事件
+
+`readyState`属性表示请求/响应过程的当前阶段
+
+- 0（UNSENT）未初始化
+- 1（OPENED）已经初始化（调用了open方法）
+- 2（HEADER_RECEIVED）
+- 3（LOADING）
+- 4（DONE）完成
+
+
+
+只要`readyState`属性的值发生变化，都会触发一次`onreadystatechange`事件
+
+
+
+#### timeout属性和ontimeout事件
+
+`timeout`属性表示请求在等待响应多少毫秒之后终止，否则触发`ontimeout`响应事件
+
+
+
+#### abort()方法和onabort事件
+
+在接收到响应之前调用`abort()`方法用来取消异步请求。
 
 
 
@@ -115,22 +145,8 @@
 
 
 
-## AJAX的状态
 
-- **对应的事件**
 
-  - `xhr.onreadystatechange`
+## 参考
 
-- **对应的属性**
-
-  - `xhr.readyState`: 每次变化触发上面的那个事件
-
-  
-
-#### `readyState`的取值
-
-- **`0` UNSENT**
-- **`1` OPENED**
-- **`2`HEADER_RECEIVED**
-- **`3` LOADING**
-- **`4` DONE**
+- https://juejin.im/post/6844904052875067400

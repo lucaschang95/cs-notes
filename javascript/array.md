@@ -82,9 +82,14 @@
 
 
 
-#### `Array.prototype.reduce()`
+#### Array.prototype.reduce()
 
-- `arr.reduce(callback( accumulator, currentValue[, index[, array]] )[, initialValue])
+- `arr.reduce(reducer[, initialValue])`
+- reducer接受4个参数
+  - acc
+  - cur
+  - idx
+  - src
 
 
 

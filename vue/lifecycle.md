@@ -22,3 +22,16 @@
 - data没有初始化
 - 
 
+
+
+
+
+
+
+## 嵌套组件的生命周期
+
+- 父组件的**beforeCreate**，**created**，**beforeMount**
+- 子组件的**beforeCreate**，**created**，**beforeMount**
+
+- 子组件的**mounted**
+- 父组件的**mounted**

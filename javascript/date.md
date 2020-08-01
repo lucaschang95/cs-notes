@@ -25,3 +25,13 @@
 - `...getSeounds()`
 
 **最常使用的是new Date()**
+
+
+
+
+
+#### 获取当前时间的时间戳
+
+**Date.now()**
+
+**new Date().getTime()**

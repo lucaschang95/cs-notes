@@ -57,3 +57,9 @@ new > 方法调用 > window
 
 - 立即调用会丢失
 - 间接引用会丢失
+
+
+
+
+
+https://image.fundebug.com/2019-03-19-01.png

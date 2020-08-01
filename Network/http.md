@@ -274,3 +274,13 @@ connection -- stream -- message -- frame
 
 - 客户端向服务器发送请求, 服务器hold注连接, 直到有新消息才返回响应
 - 客户端处理完消息后再向服务器发送新的连接
+
+
+
+#### content-type
+
+
+
+#### Cookie
+
+cookie是存在于http的header中的
