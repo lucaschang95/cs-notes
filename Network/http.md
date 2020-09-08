@@ -28,12 +28,12 @@
 
 ## HTTP方法
 
-- **GET:** 主要的获取信息的方法
-- **HEAD:** 响应与GET方法相同, 但服务器不发送body
-- **POST:** 常用语提交HTML FORM表单, 新增资源等
-- **OPTIONS:** 显示服务器对访问资源支持的方法, 幂等方法
-- **PUT:**
-- **DELETE**:
+- **GET**：主要的获取信息的方法
+- **HEAD**：响应与GET方法相同, 但服务器不发送body
+- **POST**：常用语提交HTML FORM表单, 新增资源等
+- **OPTIONS**：显示服务器对访问资源支持的方法, 幂等方法
+- **PUT**：
+- **DELETE**：
 - **CONNECT:** 建立tunnel隧道
 - **OPTIONS**:
 - **TRACE**: debugging
@@ -167,7 +167,7 @@ Content-Length: xxx
 
 - 长连接
 
-- HTTP Pipeline 管线化
+- HTTP Pipeline 
 
   - 开启后, 请求和响应不再是依次交替得了. 可以一次性发送多个请求, 一次性接收多个请求.
 
@@ -181,7 +181,15 @@ Content-Length: xxx
 
   
 
+**长连接**
 
+只有通信双方都有**connection: keep-alive**，才可以建立持久连接
+
+
+
+**管线化**
+
+一次发送多个http请求，但是服务器端会有**队首阻塞**的问题
 
 
 
@@ -190,6 +198,8 @@ Content-Length: xxx
 **新特性: 二进制, 多路复用, 首部压缩, 服务器推送**
 
 
+
+**二进制传输**
 
 
 
@@ -217,9 +227,9 @@ connection -- stream -- message -- frame
 
 #### 首部压缩
 
-**静态字典**和**动态字典**, **哈夫曼编码**
+**HPACK算法**  **静态字典**和**动态字典**, 
 
-
+哈夫曼编码：建立索引表，出现次数多的字符对应的索引尽可能短
 
 #### 服务器主动推送
 
@@ -261,6 +271,32 @@ connection -- stream -- message -- frame
 
 
 
+
+
+#### content-type
+
+application/json：后端数据
+
+application/javascript：javascript
+
+
+
+text/html：html
+
+text/css：css
+
+
+
+
+
+#### Cookie
+
+cookie是存在于http的header中的
+
+
+
+
+
 ## 长轮询/短轮询
 
 **短轮询**
@@ -277,10 +313,13 @@ connection -- stream -- message -- frame
 
 
 
-#### content-type
+#### keep-alive
+
+多个http请求复用一个tcp连接，意味着只开启一个socket，意味着只开启一个进程
+
+缺点：长时间的tcp连接容易导致系统资源无效占用
+
+**合理配置keep-alive timeout的时间**
 
 
 
-#### Cookie
-
-cookie是存在于http的header中的

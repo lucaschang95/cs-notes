@@ -3,13 +3,14 @@
 Comparison operators
 `==` `!=` `===` `!==` `>` `<` `>=` `<=`
 
-Arithmetic operators
-`+` Addition `-` Subtraction `*` Multiplication `/` Division `**` 
-power
+- 算数运算符
+  `+` Addition `-` Subtraction `*` Multiplication `/` Division `**` 
+  power
 
+- 比较运算符
+- 逻辑运算符
 
-
-## 位运算符 （bitwise）
+#### 位运算符 （bitwise）
 
 **按位与**：&
 
@@ -105,3 +106,15 @@ const mergedObj = { ...obj1, ...obj2 };
 
 4. nodeList literal
 将多个querySelector得到的nodeList合并
+
+
+
+
+
+## 优先级
+
+括号，member access，function call，new
+
+
+
+函数调用等 > 算数运算符 > 关系运算符 > 逻辑运算符 >  赋值运算符

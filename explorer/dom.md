@@ -76,6 +76,8 @@
 - `children`
 - `parentElement`
 
+
+
 #### 文本节点
 
 - `document.createTextNode(text)`创建**文本节点**

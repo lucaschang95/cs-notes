@@ -118,6 +118,11 @@ RTO (Retranmission TimeOut)
 
 ## 拥塞控制
 
+慢启动，拥塞避免，快速重传，快速回复
+
+- 拥塞窗口，动态变化
+- 判断出现拥塞的依据，没有按时收到确认报文
+
 #### 慢启动 slow start
 
 - 拥塞窗口
@@ -168,3 +173,9 @@ RTO (Retranmission TimeOut)
 #### 后果
 
 - 服务器收不到确认, 重复发送ACK, 浪费了大量服务器的资源
+
+
+
+
+
+https://juejin.im/post/6844903918334377991

@@ -1,88 +1,19 @@
 # 数据类型 (data type)
 
+Date对象单独拉出去说
 
-## typeof的返回值
+## 判断数据类型
 
-- `boolean`, `number`, `string`, `undefined`, `object`, `function`, **Symbol**
-- **注意:** null和object都会返回object
+1. typeof
 
+   - 返回值：string，number，boolean，undefined，object，symbol
 
+2. instanceof
 
+   
 
-
-#### `Object.prototype.tostring.call(obj)`返回
-
-- `[object String]`, `[object Array]` 等
-
-
-
-## 数字 (number)
-
-**数字有多种表示方法: 字面量, 十进制 (decimal), 二进制 (binary), 八进制 (octal), 十六进制 (hexadecimal), 还支持指数表示法 (exponentiation)**
-
-- **二进制:** `0b` or `0B` 开头
-- **八进制:** `0o` 开头
-- **十六进制:** `0x` `0X` 开头
-- **指数表示法**: 使用e或者E
-
-3 symbolic values: `+Infinity`, `-Infinity`, `NaN`
-
-
-
-#### 类型转换: 数字
-
-- `parseInt()` 转为整形
-- `parseFloat()` 转为浮点数
-
-
-
-### 2. number object
-Properties
-- Number.MAX_VALUE
-- Number.MIN_VALUE
-- Number.NaN
-
-
-
-
-
-
-
-
-
-
-
-
-## Boolean
-true false
-anything can be converted to boolean value:
-
-- false: 0, NaN, null, undefined, empty string('')
-- true: object
-也可以使用Boolean(param)显式变换
-
-#### falsy value
-
-- string: 空字符串
-- number: 0 和 NaN
-- object: null
-- 以及undefined
-
-**注意: 空数组变为boolean是true的**
-
-
-
-
-
-
-## Date Object
-get the current date
-
-
-
-
-
-
+3. Object.prototype.toString.call(obj)
+   1. [object String]，[object ]
 
 
 
@@ -106,12 +37,6 @@ get the current date
 
 - 直接使用强等 (===)
 
-
-
-
-
-- 
-- 
 - 基本类型, 转换为数字
 - 一个操作数是对象, 调用`ToPrimitive()`方法
 - `undefined == null` 返回true (三个等号的时候返回false)
@@ -151,13 +76,68 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and
 
 
 
-## 判断对象类型
+#### 弱等（==）和全等（===）
 
-#### typeof
+弱等先进行隐式类型转换，在进行全等比较
+
+- 弱等下，undefined == null。全等下，undefined 不等于null
+- 弱等时候，同类型直接比较
+- 弱等时候，两个都是基本类型，会变为number类型
+- 弱等时候，基本类型和引用类型比较，将引用类型变为基本类型，基本类型如果不是number和string，转为number
 
 
 
-#### instanceof
 
 
+## 类型转换
+
+js中有4种隐式类型转换，转为string，number，boolean，primitive（转为基本类型）
+
+
+
+#### 转为number
+
+- undefined：变为NaN
+- null：变为+0
+- boolean：变为1和0
+- string：尝试转换，失败变为NaN
+
+#### 转为string
+
+- undefined和null：'undefined'和'null'
+- true和false：'true'和'false'
+- number：转为相应的string
+
+#### 转为boolean
+
+- falsy value：null，undefined，0，NaN，空字符串
+
+
+
+#### 转为primitive
+
+- valueOf()和toString()
+
+
+
+#### 加号涉及到的类型转换
+
+取决于加号两边的数据类型
+
+- 有字符串，另一边转成字符串
+- 有数字，且另一边不是字符串
+
+
+
+#### 转为Number的场景
+
+算数运算符，自增自减
+
+string使用算数运算符进行比较，会把它们变为unicode进行比较
+
+
+
+## 参考文献
+
+- js隐式类型转换： https://juejin.im/post/6844903880015216653
 
